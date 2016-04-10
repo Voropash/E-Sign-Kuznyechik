@@ -8,8 +8,8 @@
     <ProjectGuid>{CC98D0AE-AB58-4D50-B874-3C4B85921B5E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GostECC</RootNamespace>
-    <AssemblyName>GostECC</AssemblyName>
+    <RootNamespace>Kuznec</RootNamespace> 
+    <AssemblyName>Kuznec</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
