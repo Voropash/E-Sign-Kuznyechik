@@ -1,0 +1,8 @@
+D:\YandexDisk\ECCGost-master\Kuznec\bin\Release\GostECC.exe
+D:\YandexDisk\ECCGost-master\Kuznec\bin\Release\GostECC.pdb
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\Kuznec.csprojResolveAssemblyReference.cache
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\Kuznec.Form1.resources
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\GostECC.Properties.Resources.resources
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\Kuznec.csproj.GenerateResource.Cache
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\GostECC.exe
+D:\YandexDisk\ECCGost-master\Kuznec\obj\x86\Release\GostECC.pdb

@@ -1,0 +1,8 @@
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\GostECC.exe
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\GostECC.pdb
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\Kuznec.csprojResolveAssemblyReference.cache
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\Kuznec.Form1.resources
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\GostECC.Properties.Resources.resources
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\obj\x86\Debug\Kuznec.csproj.GenerateResource.Cache
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\bin\Debug\GostECC.exe
+C:\Users\vorop\Desktop\cryptoKuznec\Kuznec\bin\Debug\GostECC.pdb
