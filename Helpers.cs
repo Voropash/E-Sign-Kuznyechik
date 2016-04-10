@@ -8,9 +8,14 @@ namespace Kuznec
 {
     class Helpers
     {
+        public static ulong[] GetUlongArrayFromBitArray256(BitArray bitArray)
+        {
+            var v12 = GetUlongArrayFromBitArray128(getFirstN(bitArray, 128));
+            var v34 = GetUlongArrayFromBitArray128(getLastN(bitArray, 128));
+            return new ulong[4] { v12.First(), v12.Last(), v34.First(), v34.Last()};
+        }
 
-
-        public static ulong[] GetIntFromBitArray(BitArray bitArray)
+        public static ulong[] GetUlongArrayFromBitArray128(BitArray bitArray)
         {
             var firstPart = getFirstN(bitArray, 64);
             var lastPart = getLastN(bitArray, 64);

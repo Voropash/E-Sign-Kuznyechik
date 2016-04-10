@@ -15,6 +15,7 @@ namespace Kuznec
         private byte[] xG;
         private byte[] h0;
         private ECPoint G = new ECPoint();
+        private BitArray R0 = new BitArray(128);
 
         public Signer(BigInteger p, BigInteger a, BigInteger b, BigInteger n, byte[] xG, byte[] h0)
         {
@@ -27,36 +28,27 @@ namespace Kuznec
         }
 
         // Шифруем
-        private BitArray kuznech(BitArray message, BitArray R, int n = 128, int m = 256)
+        private BitArray kuznech(BitArray message, BitArray prev_hash, int n = 128, int m = 256)
         {
             BitArray result = new BitArray(0);
+            kuznec k = new kuznec();
+            ulong[] prev_hash_long = Helpers.GetUlongArrayFromBitArray256(prev_hash);
 
-            int j = 0;
-            while (true) {
-                BitArray mBlock = new BitArray(n);
-                int i = 0;
-                while ((i + j * n < message.Count) && (i < n))
-                {
-                    mBlock[i] = message[i + j * n];
-                    i++;
-                }
-                var nn = Helpers.getFirstN(R, n);
+            var R = R0;
+            var P1 = Helpers.getFirstN(message, n);
+            var P2 = Helpers.getLastN(message, n);
 
-                //BitArray sum = mBlock.Xor(nn);
-                /*********************************/
-                kuznec k = new kuznec();
-                ulong[] nn_long = Helpers.GetIntFromBitArray(nn);
-                var cifr = k.start(nn_long);
-                BitArray sum = Helpers.bitArrayConcat(new BitArray(BitConverter.GetBytes(cifr[0])), new BitArray(BitConverter.GetBytes(cifr[1])));
-                /*********************************/
+            P1 = P1.Xor(R);
+            ulong[] P1_long = Helpers.GetUlongArrayFromBitArray128(P1);
+            var cifr = k.start(P1_long, prev_hash_long);
+            result = Helpers.bitArrayConcat(new BitArray(BitConverter.GetBytes(cifr[0])), new BitArray(BitConverter.GetBytes(cifr[1])));
+            R = result;
 
-                result = Helpers.bitArrayConcat(result, sum);
-                
-                Helpers.moveNLeftAndAdd(R, n, sum);
-
-                if (i + j * n >= message.Count) { break; }
-                j++;
-            }
+            P2 = P2.Xor(R);
+            ulong[] P2_long = Helpers.GetUlongArrayFromBitArray128(P2);
+            cifr = k.start(P2_long, prev_hash_long);
+            result = Helpers.bitArrayConcat(result, 
+                Helpers.bitArrayConcat(new BitArray(BitConverter.GetBytes(cifr[0])), new BitArray(BitConverter.GetBytes(cifr[1]))));
             
             return result;
         }

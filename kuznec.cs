@@ -2532,23 +2532,15 @@ namespace Kuznec
             ciphr[0] ^= p_key[9][0]; ciphr[1] ^= p_key[9][1];
         }
 
-        public ulong[] start(ulong[] text)
+        public ulong[] start(ulong[] text, ulong[] prev_hash)
         {
             ulong[] bloctest = new ulong[2];
-            ulong[] main_key = new ulong[4];
             ulong[][] p_key = new ulong[10][];
             ulong[] ciphr=new ulong[2];
             uint i;
             
             for (i = 0; i < 10; i++) p_key[i] = new ulong[2];
-            
-            // K1 и K2 из госта
-            main_key[0] = 0x8899aabbccddeeff;
-            main_key[1] = 0x0011223344556677;
-            main_key[2] = 0xfedcba9876543210;
-            main_key[3] = 0x0123456789abcdef;
-
-            set_key(main_key, p_key);
+            set_key(prev_hash, p_key);
             
             
             encrypt(p_key, text, ciphr);
